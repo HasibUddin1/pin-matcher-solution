@@ -21,3 +21,24 @@ document.getElementById('generate-btn').addEventListener('click', function(){
     const displayPin = document.getElementById('display-pin');
     displayPin.value = pin;
 })
+
+document.getElementById('calculator').addEventListener('click', function(event){
+    const element = event.target.innerText;
+    const typedNumbersElement = document.getElementById('typed-numbers');
+    const previousTypedNumbers = typedNumbersElement.value;
+    if(isNaN(element)){
+        if(element === 'C'){
+            typedNumbersElement.value = '';
+        }
+        else if(element === '<'){
+            const split = previousTypedNumbers.split('');
+            split.pop();
+            const splitResult = split.join('');
+            typedNumbersElement.value = splitResult;
+        }
+    }
+    else{
+        const typedNumbers = previousTypedNumbers + element;
+        typedNumbersElement.value = typedNumbers;
+    }
+})
