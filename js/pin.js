@@ -42,3 +42,22 @@ document.getElementById('calculator').addEventListener('click', function(event){
         typedNumbersElement.value = typedNumbers;
     }
 })
+
+document.getElementById('verify-btn').addEventListener('click', function(){
+    const displayPinElement = document.getElementById('display-pin');
+    const displayPin = displayPinElement.value;
+
+    const typedNumbersElement = document.getElementById('typed-numbers');
+    const typedNumbers = typedNumbersElement.value;
+
+    const verifySuccessElement = document.getElementById('verify-success');
+    const verifyFailureElement = document.getElementById('verify-failure');
+    if(displayPin === typedNumbers){
+        verifySuccessElement.style.display = 'block';
+        verifyFailureElement.style.display = 'none';
+    }
+    else{
+        verifyFailureElement.style.display = 'block';
+        verifySuccessElement.style.display = 'none';
+    }
+})
